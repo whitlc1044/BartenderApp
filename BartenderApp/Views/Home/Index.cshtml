@@ -1,0 +1,27 @@
+﻿
+@model IEnumerable<BartenderApp.Models.Drink>
+
+
+
+@{ ViewBag.Title = "Drink Menu"; }
+
+<h2>Drink Menu</h2>
+
+
+
+@foreach (var p in Model)
+{
+<div class="well">
+    <h3>
+        <strong>@p.Name</strong>
+        <span class="pull-right label label-primary">@p.Price.ToString("c")</span>
+    </h3>
+
+
+    <div class="pull-right">
+        <span class="btn btn-sm btn-default">@Html.ActionLink("Pass drink's values to Home/Order", "Order", "Home", p, null)</span>
+    </div>
+
+
+    <span class="lead"> @p.Description</span>
+</div>}
